@@ -184,10 +184,10 @@ Try adding a some in the options"
       echo $wallpaper > $current
       break;;
     "Search for a wallpaper in unsplash")
-      unsplash
       echo "Search: "
       read query
       search=${query}
+      unsplash
       type_check
       wal -c
       wal -i ${wallpaper} && cd $HOME && compileSuckless &&
