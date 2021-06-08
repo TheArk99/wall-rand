@@ -1,6 +1,6 @@
 # wall-rand
 
-<p>This is somewhat of a fork of styli.sh by thevinter. wall-rand is able to give you a random wallpapper from the dir of wallpapers that i have(they are in my github too), on the other hand wall-rand-choices gives you 7 choices; you can Get a random wallpaper from the dir that are all good, see current wallpaper that you are currently using with this script, use a favorited wallpaper, add a wallpaper to your favorites, get a wallpaper from just unsplash(somewaht like styli.sh), get a wallpaper from reddit, and finaly search for a wallpaper from unsplash.</p>
+<p>This is script that is inspired by styli.sh by thevinter. wall-rand is able to give you a random wallpapper from the dir of wallpapers that i have(they are in my github too), on the other hand wall-rand-choices gives you 7 choices; you can Get a random wallpaper from the dir that are all good, see current wallpaper that you are currently using with this script, use a favorited wallpaper, add a wallpaper to your favorites, get a wallpaper from just unsplash(somewaht like styli.sh), get a wallpaper from reddit, and finaly search for a wallpaper from unsplash.</p>
 
 ## Requirements
 
