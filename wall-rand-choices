@@ -120,7 +120,7 @@ Try adding a some in the options"
       break;;
     "Get a wallpapper from reddit")
       reddit(){
-        subredditDir=$(locate subreddits)
+        subredditDir=$(locate subreddits | head -1)
         useragent="thevinter"
         timeout=60
         sort=$2

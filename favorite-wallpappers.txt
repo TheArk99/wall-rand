@@ -1,2 +1,3 @@
 /Storage/Pictures/wallpapers/0221.jpg
 /Storage/Pictures/wallpapers/0172.jpg
+/Storage/Pictures/wallpapers/macOS-Big-Sur-Vector-Wave.jpg

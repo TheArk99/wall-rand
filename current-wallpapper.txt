@@ -1,1 +1,1 @@
-/Storage/Pictures/wallpapers/macOS-Big-Sur-Vector-Wave.jpg
+/home/noah/.cache/styli.sh/wallpaper.jpg
