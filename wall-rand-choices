@@ -78,12 +78,12 @@ select choices in "${choice[@]}"; do
       sxiv $(cat $current)
       break;;
     "Use favorite wallpappers")
-      fuckthis=$(cat $favorite)
+      fuckthis=$(cat $favorite 2>/dev/null)
       if [[ $fuckthis = '' || $fuckthis = ' ' ]]; then
         printf "\nThere is nothing in the favorites file...
 Try adding a some in the options"
       else
-        sxiv -t $(cat $favorite) &&
+        sxiv -t $fuckthis &&
         printf "\n"
         cat $favorite &&
         printf "\nCopy the wallpapper path in the input for the wallpapper you want... " &&
