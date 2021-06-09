@@ -83,7 +83,7 @@ select choices in "${choice[@]}"; do
         printf "\nThere is nothing in the favorites file...
 Try adding a some in the options"
       else
-        sxiv -t $fuckthis &&
+        sxiv -t $fuckthis
         printf "\n"
         cat $favorite &&
         printf "\nCopy the wallpapper path in the input for the wallpapper you want... " &&
