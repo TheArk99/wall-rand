@@ -53,6 +53,16 @@ type_check() {
     fi
 }
 
+statment() {
+  if [[ $ifloop = $loop && $dwm != '' ]]; then
+    killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
+  elif [[ $dwm = '' ]]; then
+    startx || echo "THERE IS A ERROR WITH STARTING XORG"
+  else
+    echo "THERE IS A ERROR OR SOMETHING UNEXPECTED HAPPENDED"
+  fi
+}
+
 echo "What would you like to do?"
 choice=("Get a new wallpapper" "See current wallpapper" "Use favorite wallpappers"
   "Add current wallpapper to favorites" "Get a wallpappper from unsplash" "Get a wallpapper from reddit" "Search for a wallpaper in unsplash" "exit")
@@ -65,13 +75,7 @@ select choices in "${choice[@]}"; do
       echo $ ;
       cd ~/Pictures/wallpapers/ && wal -i $wallpapper && cd $HOME && compileSuckless &&
       #do this if dwm is in a while loop
-      if [[ $ifloop = $loop && $dwm != '' ]]; then
-        killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
-      elif [[ $dwm = '' ]]; then
-        startx || echo "THERE IS A ERROR WITH STARTING XORG"
-      else
-        echo "THERE IS A ERROR OR SOMETHING UNEXPECTED HAPPENDED"
-      fi
+      statment
       echo $wallloc > $current
       break;;
     "See current wallpapper")
@@ -89,13 +93,7 @@ Try adding a some in the options"
         printf "\nCopy the wallpapper path in the input for the wallpapper you want... " &&
         read want
         wal -i $want && cd $HOME && compileSuckless &&
-        if [[ $ifloop = $loop && $dwm != '' ]]; then
-          killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
-        elif [[ $dwm = '' ]]; then
-          startx || echo "THERE IS A ERROR WITH STARTING XORG"
-        else
-          echo "THERE IS A ERROR OR SOMETHING UNEXPECTED HAPPENDED"
-        fi
+        statment
         echo $want > $current
       fi
       break;;
@@ -109,13 +107,7 @@ Try adding a some in the options"
       type_check
       wal -c
       wal -i ${wallpaper} && cd $HOME && compileSuckless &&
-      if [[ $ifloop = $loop && $dwm != '' ]]; then
-        killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
-      elif [[ $dwm = '' ]]; then
-        startx || echo "THERE IS A ERROR WITH STARTING XORG"
-      else
-        echo "THERE IS A ERROR OR SOMETHING UNEXPECTED HAPPENDED"
-      fi
+      statment
       echo $wallpaper > $current
       break;;
     "Get a wallpapper from reddit")
@@ -174,13 +166,7 @@ Try adding a some in the options"
       type_check
       wal -c
       wal -i ${wallpaper} && cd $HOME && compileSuckless &&
-      if [[ $ifloop = $loop && $dwm != '' ]]; then
-        killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
-      elif [[ $dwm = '' ]]; then
-        startx || echo "THERE IS A ERROR WITH STARTING XORG"
-      else
-        echo "THERE IS A ERROR OR SOMETHING UNEXPECTED HAPPENDED"
-      fi
+      statment
       echo $wallpaper > $current
       break;;
     "Search for a wallpaper in unsplash")
@@ -191,13 +177,7 @@ Try adding a some in the options"
       type_check
       wal -c
       wal -i ${wallpaper} && cd $HOME && compileSuckless &&
-      if [[ $ifloop = $loop && $dwm != '' ]]; then
-        killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
-      elif [[ $dwm = '' ]]; then
-        startx || echo "THERE IS A ERROR WITH STARTING XORG"
-      else
-        echo "THERE IS A ERROR OR SOMETHING UNEXPECTED HAPPENDED"
-      fi
+      statment
       echo $wallpaper > $current
       break;;
     "exit")
