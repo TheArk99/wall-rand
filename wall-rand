@@ -7,7 +7,7 @@ echo $wallpapper ;
 cd ~/Pictures/wallpapers/ && wal -i $wallpapper && cd $HOME && compileSuckless &&
 
 #do this if dwm is in a while loop
-ifloop=$(grep "dwm >/dev/null 2>&1" ~/.xinitrc)
+ifloop=$(grep "dwm >/dev/null 2>&1" ~/.xinitrc 2>/dev/null || grep "dwm >/dev/null 2>&1" ~/.config/X11/xinitrc 2>/dev/null)
 loop="  dwm >/dev/null 2>&1"
 dwm=$(pidof dwm)
 if [[ $ifloop = $loop && $dwm != '' ]]; then

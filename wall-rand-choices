@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ifloop=$(grep "dwm >/dev/null 2>&1" ~/.xinitrc)
+ifloop=$(grep "dwm >/dev/null 2>&1" ~/.xinitrc 2>/dev/null || grep "dwm >/dev/null 2>&1" ~/.config/X11/xinitrc 2>/dev/null)
 dwm=$(pidof dwm)
 current=$(locate current-wallpapper.txt)
 favorite=$(locate favorite-wallpappers.txt)
