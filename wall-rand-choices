@@ -63,13 +63,20 @@ statment() {
   fi
 }
 
-echo "What would you like to do?"
-choice=("Get a new wallpapper" "See current wallpapper" "Use favorite wallpappers"
-  "Add current wallpapper to favorites" "Get a wallpappper from unsplash" "Get a wallpapper from reddit" "Search for a wallpaper in unsplash" "exit")
+#echo "What would you like to do?"
+#choice=("Get a new wallpapper" "See current wallpapper" "Use favorite wallpappers"
+#  "Add current wallpapper to favorites" "Get a wallpappper from unsplash" "Get a wallpapper from reddit" "Search for a wallpaper in unsplash" "exit")
 
-select choices in "${choice[@]}"; do
-  case $choices in
-    "Get a new wallpapper")
+#select choices in "${choice[@]}"; do
+VALID_ARGUMENTS=$?
+if [ "$VALID_ARGUMENTS" != "0" ]; then
+    usage
+    exit
+fi
+while :
+do
+  case "${1}" in
+    -r)
       wallpapper=$(cd ~/Pictures/wallpapers/ ; ls | shuf | head -1)
       wallloc=$(locate $wallpapper | grep "wallpapers" | sed '/.cache/d' | sed 's/^$//g')
       echo $ ;
@@ -78,10 +85,10 @@ select choices in "${choice[@]}"; do
       statment
       echo $wallloc > $current
       break;;
-    "See current wallpapper")
+    -S)
       sxiv $(cat $current)
       break;;
-    "Use favorite wallpappers")
+    -f)
       fuckthis=$(cat $favorite 2>/dev/null)
       if [[ $fuckthis = '' || $fuckthis = ' ' ]]; then
         printf "\nThere is nothing in the favorites file...
@@ -97,12 +104,12 @@ Try adding a some in the options"
         echo $want > $current
       fi
       break;;
-    "Add current wallpapper to favorites")
+    -a)
       echo $(cat $current) >> $favorite
       echo $(cat $current) "Was added to your favorits file!"
       gawk -i inplace '!seen[$0]++' $favorite
       break;;
-    "Get a wallpappper from unsplash")
+    -U)
       unsplash
       type_check
       wal -c
@@ -110,7 +117,7 @@ Try adding a some in the options"
       statment
       echo $wallpaper > $current
       break;;
-    "Get a wallpapper from reddit")
+    -R)
       reddit(){
         subredditDir=$(locate subreddits | head -1)
         useragent="thevinter"
@@ -169,7 +176,7 @@ Try adding a some in the options"
       statment
       echo $wallpaper > $current
       break;;
-    "Search for a wallpaper in unsplash")
+    -s)
       echo "Search: "
       read query
       search=${query}
@@ -180,8 +187,8 @@ Try adding a some in the options"
       statment
       echo $wallpaper > $current
       break;;
-    "exit")
-      exit;;
-    *) echo "Invalid option $REPLY"
+    #"exit")
+    #  exit;;
+    *) echo "Invalid option $REPLY" ; exit;;
   esac
 done
