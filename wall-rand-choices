@@ -56,6 +56,8 @@ type_check() {
 statment() {
   if [[ $ifloop = $loop && $dwm != '' ]]; then
     killall dwm || echo "THERE IS A ERROR WITH KILLING DWM"
+    killall slstatus || echo "THERE IS A ERROR WITH KILLING DWM"
+    slstatus &
   elif [[ $dwm = '' ]]; then
     startx || echo "THERE IS A ERROR WITH STARTING XORG"
   else
